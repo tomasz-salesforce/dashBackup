@@ -4,8 +4,8 @@ Python EA Dashboard Backup Utility
 
 To use the utility, open the dashBackup.py file in a text editor. You will then have to edit the two lines in the code:
 
-self.sourceOAuth = "OAuth 00D1I000000mhr9!AQcAQAfXXSaG.bdWdtoET.b7jflde2dgdad"
-self.sourceInst = "https://tomasz234.my.salesforce.com"
+    self.sourceOAuth = "OAuth 00D1I000000mhr9!AQcAQAfXXSaG.bdWdtoET.b7jflde2dgdad"
+    self.sourceInst = "https://tomasz234.my.salesforce.com"
 
 Here you’ll have to put in your own OAuth token as well as the instance URL to the org from which you are backing up the dashboards. 
 
@@ -41,7 +41,7 @@ Paste this into the self.sourceInst variable.
 
 To run the script, navigate to the location of the script in your terminal and type:
 
-python dashBackup.py
+    python dashBackup.py
 
 If you have everything configured correctly, you should see a folder in the same directory as where the script was run with a date/time name (ex. "2018-01-30_15-11-58"). This directory will have all of your backed up dashboards.
 
@@ -49,23 +49,21 @@ If you have everything configured correctly, you should see a folder in the same
 
 To get the script to work, you need to have the requests Python module installed. If you do not have it installed, you’ll get an error like this when running the script:
 
-ImportError: No module named requests
+    ImportError: No module named requests
 
  when running the script, try installing the module by typing
 
-sudo pip install requests
+    sudo pip install requests
 
  into your terminal. If you get another error such as:
 
-	pip: command not found
+    pip: command not found
 
 first run the command:
 
-	
+    sudo easy_install pip
 
-sudo easy_install pip
-
-You should then be able to run the earlier command (sudo pip install requests). With no errors in these steps, you should be able to go back and run "python dashBackup.py". 
+You should then be able to run the earlier command (sudo pip install requests). With no errors in these steps, you should be able to go back and run `python dashBackup.py`. 
 
 ## Notes
 
