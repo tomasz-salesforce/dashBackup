@@ -5,8 +5,8 @@ import datetime
 
 class dashBackup(object):
 	def __init__(self):
-		self.sourceOAuth = "OAuth 00D1I000000mhr9!AQcAQAfXXSaG.bdWdtoET.b7x5XanvzgTkoj8Qehq_x6ooGXPdgdY7Nhh4c_TP.Xy_XSgwWvQn8RtIT.CtYbnOlSQLZjjRKxp_Z"
-		self.sourceInst = "https://tomasz234.my.salesforce.com"
+		self.sourceOAuth = "OAuth 00DB00000003s2B!AQgAQGJdL2yj1008PdGF1FGSCJ.R26h6S7pu0xz5EQxy.ftRe_LIDC.UwD2xrf6qgMyEld79pmwrvuy6hNlfkKTdCFgobJx8"
+		self.sourceInst = "https://geofftestorg.my.salesforce.com"
 
 	def getDashboardsJson(self):
 			#inApps = [x['source'] for x in self.appsMap]
@@ -29,7 +29,7 @@ class dashBackup(object):
 				for dash in respJson['dashboards']:
 					if (inApps == None):
 						dashUrls.append(dash['url'])
-					elif (('folder' in dash) and ('name' in dash['folder']) and (dash['folder']['name'] in inApps)):
+					elif (('folder' in dash) and ('name' in dash['folder']) and (dash['folder']['id'] in inApps)):
 						dashUrls.append(dash['url'])
 				
 				if respJson['nextPageUrl'] == None:
@@ -45,6 +45,7 @@ class dashBackup(object):
 					dashDict[jsonDash['name']] = jsonDash
 				except:
 					print "Unable to get dashboard with url: {0}".format(jsonUrl)
+					print resp.text
 					continue
 					
 			return dashDict
@@ -53,7 +54,7 @@ class dashBackup(object):
 		h = HTMLParser()	
 		for keyStep, valueStep in dashDict['state']['steps'].items():
 			if 'query' in valueStep:
-				if valueStep['type'] != "saql":
+				if valueStep['type'] != "saql" and valueStep['type'] != "soql" and valueStep['type'] != "apex":
 					unescapedQuery = h.unescape(valueStep['query']['query'])
 					dashDict['state']['steps'][keyStep]['query'] = json.loads(unescapedQuery)
 
