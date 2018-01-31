@@ -5,8 +5,8 @@ import datetime
 
 class dashBackup(object):
 	def __init__(self):
-		self.sourceOAuth = "OAuth 00DB00000003s2B!AQgAQGJdL2yj1008PdGF1FGSCJ.R26h6S7pu0xz5EQxy.ftRe_LIDC.UwD2xrf6qgMyEld79pmwrvuy6hNlfkKTdCFgobJx8"
-		self.sourceInst = "https://geofftestorg.my.salesforce.com"
+		self.sourceOAuth = "OAuth 00D1I000000mhr9!AQcAQAfXXSaG.bdWdtoET.b7jflde2dgdad"
+		self.sourceInst = "https://tomasz234.my.salesforce.com"
 
 	def getDashboardsJson(self):
 			#inApps = [x['source'] for x in self.appsMap]
